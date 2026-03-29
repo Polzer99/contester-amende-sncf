@@ -4,8 +4,8 @@ import json
 import stripe
 from http.server import BaseHTTPRequestHandler
 
-# Add api/ to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+# Add lib/ to path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "lib"))
 
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY", "")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
