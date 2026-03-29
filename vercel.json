@@ -1,4 +1,6 @@
 {
+    "buildCommand": "",
+    "outputDirectory": "public",
     "rewrites": [
         { "source": "/api/create-checkout", "destination": "/api/create-checkout" },
         { "source": "/webhook/stripe", "destination": "/api/webhook/stripe" }
