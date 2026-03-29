@@ -158,9 +158,35 @@
 <section class="form-section" id="formulaire">
     <div class="container">
         <h2>Lancez votre contestation</h2>
-        <p class="form-intro">Remplissez les informations ci-dessous. Votre lettre sera generee automatiquement avec les bons arguments juridiques.</p>
+        <p class="form-intro">Prenez en photo votre PV et l'IA remplit tout automatiquement. Ou saisissez les infos manuellement.</p>
 
         <form id="contestation-form" class="form">
+            <!-- UPLOAD PHOTO -->
+            <fieldset>
+                <legend>Photo de votre PV / amende</legend>
+                <div class="upload-zone" id="upload-zone">
+                    <input type="file" id="ticket-photo" accept="image/*" capture="environment" hidden>
+                    <div class="upload-content" id="upload-content">
+                        <div class="upload-icon">&#128247;</div>
+                        <p class="upload-text"><strong>Prenez en photo votre PV</strong></p>
+                        <p class="upload-hint">ou glissez-deposez l'image ici</p>
+                        <button type="button" class="btn btn-sm" id="upload-btn" onclick="document.getElementById('ticket-photo').click()">Choisir une photo</button>
+                    </div>
+                    <div class="upload-preview" id="upload-preview" hidden>
+                        <img id="preview-img" alt="Preview du PV">
+                        <div class="upload-status" id="upload-status">
+                            <span class="spinner"></span> Extraction des informations en cours...
+                        </div>
+                    </div>
+                    <div class="upload-success" id="upload-success" hidden>
+                        <span class="checkmark">&#10003;</span> Informations extraites avec succes ! Verifiez ci-dessous.
+                    </div>
+                    <div class="upload-error" id="upload-error" hidden>
+                        Impossible de lire la photo. Remplissez les champs manuellement.
+                    </div>
+                </div>
+            </fieldset>
+
             <fieldset>
                 <legend>Vos coordonnees</legend>
                 <div class="form-row">
