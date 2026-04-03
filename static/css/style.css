@@ -441,6 +441,50 @@ legend {
     .footer-inner { flex-direction: column; }
 }
 
+/* === FLOATING WHATSAPP === */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: wa-pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+    text-decoration: none;
+}
+
+@keyframes wa-pulse {
+    0% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.7); }
+    100% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
+}
+
+/* === HELP SECTION === */
+.help-section {
+    background: #f0fdf4;
+    border-top: 2px solid #25D366;
+    border-bottom: 2px solid #25D366;
+}
+
+.help-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
 /* === LOADING STATE === */
 .btn[disabled] {
     opacity: 0.7;

@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } catch (err) {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Payer 10 \u20AC et envoyer ma contestation';
+            submitBtn.textContent = 'Payer 20 \u20AC et envoyer ma contestation';
             alert('Une erreur est survenue. Veuillez reessayer.');
             console.error(err);
         }

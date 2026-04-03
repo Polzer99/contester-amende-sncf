@@ -21,9 +21,9 @@ export default async function handler(req, res) {
                 currency: "eur",
                 product_data: {
                     name: "Contestation amende SNCF - Recommande AR",
-                    description: `Lettre de reclamation pour le recu ${numero_recu}`,
+                    description: `Lettre de reclamation pour le recu ${numero_recu} — generation + envoi LRAR`,
                 },
-                unit_amount: 1000,
+                unit_amount: 2000,
             },
             quantity: 1,
         }],
