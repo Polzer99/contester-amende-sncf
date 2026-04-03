@@ -23,7 +23,7 @@ export default async function handler(req, res) {
                     name: "Contestation amende SNCF - Recommande AR",
                     description: `Lettre de reclamation pour le recu ${numero_recu} — generation + envoi LRAR`,
                 },
-                unit_amount: 2000,
+                unit_amount: 1490,
             },
             quantity: 1,
         }],
