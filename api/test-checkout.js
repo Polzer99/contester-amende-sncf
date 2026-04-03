@@ -2,10 +2,7 @@ import Stripe from "stripe";
 
 export default async function handler(req, res) {
     try {
-        if (req.method !== "POST") {
-            return res.status(405).json({ error: "Method not allowed" });
-        }
-        const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+        const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { timeout: 30000, maxNetworkRetries: 3 });
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             line_items: [{ price_data: { currency: "eur", product_data: { name: "Test" }, unit_amount: 1490 }, quantity: 1 }],
@@ -16,6 +13,6 @@ export default async function handler(req, res) {
         });
         return res.status(200).json({ checkout_url: session.url });
     } catch (err) {
-        return res.status(500).json({ error: err.message, stack: err.stack });
+        return res.status(500).json({ error: err.message, type: err.type, code: err.code });
     }
 }

@@ -5,7 +5,10 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+        timeout: 30000,
+        maxNetworkRetries: 3,
+    });
     const BASE_URL = process.env.BASE_URL || "https://contester-amende-sncf.vercel.app";
 
     const {
