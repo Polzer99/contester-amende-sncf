@@ -34,8 +34,18 @@ function buildStripeParams(body) {
 }
 
 export default async function handler(req, res) {
+    // Security headers
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("X-Frame-Options", "DENY");
+
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    // Basic input validation
+    const { prenom, nom, email } = req.body || {};
+    if (!prenom || !nom || !email) {
+        return res.status(400).json({ error: "Missing required fields: prenom, nom, email" });
     }
 
     try {

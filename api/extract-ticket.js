@@ -1,4 +1,12 @@
+// Max image size: 10MB base64 (~7.5MB raw)
+const MAX_IMAGE_SIZE = 10 * 1024 * 1024;
+const ALLOWED_MEDIA_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
+
 export default async function handler(req, res) {
+    // Security headers
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("X-Frame-Options", "DENY");
+
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -14,6 +22,14 @@ export default async function handler(req, res) {
         if (!image) {
             return res.status(400).json({ error: "No image provided" });
         }
+
+        // Validate image size
+        if (typeof image !== "string" || image.length > MAX_IMAGE_SIZE) {
+            return res.status(400).json({ error: "Image too large. Max 10MB." });
+        }
+
+        // Validate media type
+        const safeMediaType = ALLOWED_MEDIA_TYPES.includes(mediaType) ? mediaType : "image/jpeg";
 
         const response = await fetch("https://api.anthropic.com/v1/messages", {
             method: "POST",
@@ -33,7 +49,7 @@ export default async function handler(req, res) {
                                 type: "image",
                                 source: {
                                     type: "base64",
-                                    media_type: mediaType || "image/jpeg",
+                                    media_type: safeMediaType,
                                     data: image,
                                 },
                             },

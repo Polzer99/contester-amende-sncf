@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://contester-amende-sncf.vercel.app/sitemap.xml
