@@ -276,24 +276,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // === STEP 3: PAY → STRIPE ===
     function buildPayload() {
-        var adresseVal = getFieldValue('adresse');
-        var codPostal = '';
-        var ville = '';
-        var cpMatch = adresseVal.match(/\b(\d{5})\b/);
-        if (cpMatch) {
-            codPostal = cpMatch[1];
-            var afterCp = adresseVal.substring(adresseVal.indexOf(cpMatch[1]) + 5).trim();
-            afterCp = afterCp.replace(/^[,\-\s]+/, '');
-            if (afterCp) ville = afterCp;
-        }
-
         return {
             prenom: getFieldValue('prenom'),
             nom: getFieldValue('nom'),
             email: getFieldValue('email'),
-            adresse: adresseVal,
-            code_postal: codPostal,
-            ville: ville,
+            adresse: getFieldValue('adresse'),
+            code_postal: getFieldValue('code_postal'),
+            ville: getFieldValue('ville'),
             numero_train: extractedData.numero_train || '',
             date_trajet: extractedData.date_trajet || '',
             gare_depart: extractedData.gare_depart || '',

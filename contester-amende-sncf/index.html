@@ -262,8 +262,18 @@
                 <input type="email" id="email" name="email" required placeholder="paul@exemple.fr">
             </div>
             <div class="form-group">
-                <label for="adresse">Adresse complète</label>
-                <input type="text" id="adresse" name="adresse" required placeholder="12 rue de la Paix, 75001 Paris">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" name="adresse" required placeholder="12 rue de la Paix">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="code_postal">Code postal</label>
+                    <input type="text" id="code_postal" name="code_postal" required placeholder="75001" pattern="[0-9]{5}" maxlength="5">
+                </div>
+                <div class="form-group">
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" required placeholder="Paris">
+                </div>
             </div>
 
             <div class="form-actions">
