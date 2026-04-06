@@ -28,6 +28,7 @@ function buildStripeParams(body) {
         "metadata[montant_amende]": montant_amende || "0",
         "metadata[montant_transport]": montant_transport || "0",
         "metadata[numero_agent]": numero_agent || "",
+        "allow_promotion_codes": "true",
         "success_url": `${BASE_URL}/contester-amende-sncf/merci/?session_id={CHECKOUT_SESSION_ID}`,
         "cancel_url": `${BASE_URL}/contester-amende-sncf/#formulaire`,
     });
