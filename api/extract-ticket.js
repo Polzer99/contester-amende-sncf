@@ -63,8 +63,9 @@ export default async function handler(req, res) {
     "numero_train": "le numero du train (ex: 7038)",
     "gare_depart": "la gare de depart",
     "gare_arrivee": "la gare d'arrivee",
-    "montant_amende": "le montant de l'indemnite forfaitaire en euros (nombre uniquement)",
-    "montant_transport": "le montant du transport en euros (nombre uniquement, 0 si non trouve)",
+    "montant_total": "le MONTANT TOTAL preleve (indemnite + transport, en euros, nombre uniquement). C'est le montant final debite. Ex: si indemnite 88 + transport 67, mettre 155",
+    "montant_amende": "le montant de l'indemnite forfaitaire seule (nombre uniquement)",
+    "montant_transport": "le montant du transport seul (nombre uniquement, 0 si absent)",
     "numero_agent": "le numero/code de l'agent (ex: AN364)",
     "nom_voyageur": "le nom du voyageur si visible",
     "prenom_voyageur": "le prenom du voyageur si visible"

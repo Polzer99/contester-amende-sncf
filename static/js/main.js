@@ -173,8 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { key: 'date_trajet', label: 'Date du trajet' },
         { key: 'numero_train', label: 'Train' },
         { key: 'gare_depart', label: 'Gare d\u00e9part', suffix: 'gare_arrivee', separator: ' \u2192 ' },
-        { key: 'montant_amende', label: 'Amende', suffix_text: ' \u20ac' },
-        { key: 'montant_transport', label: 'Transport', suffix_text: ' \u20ac' },
+        { key: 'montant_total', label: 'Montant pr\u00e9lev\u00e9', suffix_text: ' \u20ac' },
         { key: 'numero_agent', label: 'Agent' },
     ];
 
