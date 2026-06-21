@@ -3,6 +3,6 @@
     "type": "module",
     "dependencies": {
         "pdf-lib": "^1.17.1",
-        "stripe": "^17.0.0"
+        "stripe": "^22.2.2"
     }
 }
